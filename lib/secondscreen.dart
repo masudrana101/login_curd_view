@@ -87,19 +87,27 @@ class _SecondScreenState extends State<SecondScreen> {
           final item = dataList[index];
           return Card(
             child: ListTile(
-              title: Text(item['title'] ?? 'No title'),
-              subtitle: Text(item['sub_title'] ?? 'No content'),
-              leading:    Text('Update: ${item['updated_by'] ?? 'No update'}'),
-              //leading: Text(item['category_id']?.toString() ?? 'No content'),
-              trailing: Column(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  Text('Description: ${item['description'] ?? 'No content'}'),
-                  Text('Slug: ${item['slug'] ?? 'No slug'}'),
-                  Text('Date: ${item['date'] ?? 'No Date'}'),
-                  // Text('Update: ${item['updated_by'] ?? 'No update'}'),
-                ],
+              //title: Text(item['title'] ?? 'No title'),
+              //subtitle: Text(item['sub_title'] ?? 'No content'),
+              leading: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(item['title'] ?? 'No title'),
+                    //Text(item['sub_title'] ?? 'No content'),
+                    Text(item['category_id']?.toString() ?? 'No content'),
+                  ],
               ),
+
+               trailing: Column(
+                 crossAxisAlignment: CrossAxisAlignment.end,
+                 children: [
+                   Text('Description: ${item['description'] ?? 'No content'}'),
+                   Text('Slug: ${item['slug'] ?? 'No slug'}'),
+                   Text('Date: ${item['date'] ?? 'No Date'}'),
+                   //Text('Update: ${item['updated_by'] ?? 'No update'}'),
+
+                 ],
+               ),
               onTap: () {
                 // Show a confirmation dialog before deleting
                 showDialog(
